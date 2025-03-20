@@ -1,87 +1,22 @@
-# Welcome to React Router!
+# Demo frontend
 
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
-
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
-
-## Getting Started
-
-### Installation
-
-Install the dependencies:
+This is a demo frontend for [my workshop](https://h3x4d3c1m4l.github.io/cicd-with-github-workshop-slides/). Is has been created with the following command (ran from the `Frontend` folder):
 
 ```bash
-npm install
+npx create-react-router@latest .
 ```
 
-### Development
+Additionally, SSR (Server Side Rendering) has been disabled (in [react-router.config.ts](./react-router.config.ts)) to ensure this frontend runs as a classic SPA (Single Page Application) which can be deployed to an Azure Static Web App.
 
-Start the development server with HMR:
+## Running locally
 
 ```bash
-npm run dev
+npm i # Only needed once
+npm run start
 ```
 
-Your application will be available at `http://localhost:5173`.
+## Deploying to the cloud
 
-## Building for Production
+This repository contains a [GitHub Actions workflow](../.github/workflows/deploy-to-azure.yml) to demonstrate how this frontend can be deployed automatially to Azure.
 
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+Don't forget to add the `AZURE_DEPLOYMENT_TOKEN` secret to your GitHub repository.
